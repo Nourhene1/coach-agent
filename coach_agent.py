@@ -44,5 +44,6 @@ def motivate():
         print("❌ Erreur get_groq_response:", str(e))
         return {"message": random.choice(MESSAGES)}  # fallback local
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("coach_agent:app", host="0.0.0.0", port=10000)
+    import uvicorn, os
+    uvicorn.run("coach_agent:app", host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+
