@@ -43,7 +43,3 @@ def motivate():
     except Exception as e:
         print("❌ Erreur get_groq_response:", str(e))
         return {"message": random.choice(MESSAGES)}  # fallback local
-if __name__ == "__main__":
-    import uvicorn, os
-    uvicorn.run("coach_agent:app", host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
-
